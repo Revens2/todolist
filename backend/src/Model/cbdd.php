@@ -2,54 +2,53 @@
 
 namespace App\Model;
 
+use pdo;
+use PDOException;
 
 class cbdd 
 {
-public static $url = parse_url($_ENV['DATABASE_URL'] ?? getenv('DATABASE_URL'));
 
+private static ?PDO $conn = null;
 
-
-private static string $servername = $url['host'];
-private static string $username = $url['user']; 
-private static string $password = $url['pass']; 
-private static string $dbname = ltrim($url['path'], '/');
-private static string $port =  $url['port'];
-
- public static $conn;
-
-    private function GetServername()
+    /*-------------------------------------------------*/
+    private static function connect(): void
     {
-        return self::$servername;
+        if (self::$conn !== null) {
+            return;
+        }
+
+        // 1) lit DATABASE_URL et le convertit en DSN
+        $u  = parse_url($_ENV['DATABASE_URL'] ?? getenv('DATABASE_URL'));
+        if (!$u) {
+            throw new \RuntimeException('DATABASE_URL manquant ou invalide');
+        }
+
+        $dsn = sprintf(
+            'pgsql:host=%s;port=%s;dbname=%s',
+            $u['host'],
+            $u['port'] ?? 5432,
+            ltrim($u['path'], '/')
+        );
+
+        try {
+            self::$conn = new PDO($dsn, $u['user'], $u['pass'], [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            ]);
+        } catch (PDOException $e) {
+            throw new \RuntimeException('Connexion PDO PGSQL impossible : '.$e->getMessage());
+        }
     }
 
-    private function GetUsername()
-    {
-        return self ::$username;
+
+
+    public static function selectlogin(string $email, string $password) {
+        self::connect();
+  $stmt = self::$conn->prepare('SELECT * FROM utilisateur WHERE email = ? AND password = ?');
+$stmt->execute([$email, $password]);
+return $stmt->fetch();
+
     }
-
-    private function GetPassword ()
-    {
-        return self ::$password;
-    }
-
-    private function GetDbname ()
-    {
-        return self ::$dbname;
-    }
-
-
-     public static function init() 
-    {
-     $conn = pg_connect("host=".self::$servername. "port=".self::$port. "dbname=".self::$dbname. "user=".self::$username. "password=".self::$password);
-    }
-
-     public static function executequery(string $query)
-    {
-        $result = pg_query(self::$conn, "'$query'");
-        var_dump(pg_fetch_all($result));
-    }
-
-    
 
 }
 ?>

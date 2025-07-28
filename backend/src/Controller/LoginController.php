@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Model\cbdd;
 
-
 class LoginController extends AbstractController
 {
     #[Route('/api/login', name: 'api_login', methods: ['POST'])]
@@ -21,10 +20,9 @@ class LoginController extends AbstractController
         if (!$email || !$password) {
             return new JsonResponse(['error' => 'Email et mot de passe requis'], 400);
         }
+        $user = cbdd::selectlogin($email , $password);
 
-        $user = cbdd::executequery('SELECT * FROM utilisateur WHERE email = ?', [$email]);
-
-        if (!$user || !password_verify($password, $user['password'])) {
+        if (!$user) {
             return new JsonResponse(['error' => 'Identifiants invalides'], 401);
         }
 
