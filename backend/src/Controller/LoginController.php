@@ -3,16 +3,36 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
+cbdd::init();
 
-final class LoginController extends AbstractController
+
+class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'app_login')]
-    public function index(): Response
+    #[Route('/api/login', name: 'api_login', methods: ['POST'])]
+    public function login(Request $request): JsonResponse
     {
-        return $this->render('login/index.html.twig', [
-            'controller_name' => 'LoginController',
+        $data = json_decode($request->getContent(), true);
+        $email = $data['email'] ?? null;
+        $password = $data['password'] ?? null;
+
+        if (!$email || !$password) {
+            return new JsonResponse(['error' => 'Email et mot de passe requis'], 400);
+        }
+
+        $user = cbdd::fetchAssociative('SELECT * FROM utilisateur WHERE email = ?', [$email]);
+
+        if (!$user || !password_verify($password, $user['password'])) {
+            return new JsonResponse(['error' => 'Identifiants invalides'], 401);
+        }
+
+        return new JsonResponse([
+            'message' => 'Connexion réussie',
+            'user_id' => $user['userid'],
+            'email' => $user['email']
         ]);
     }
 }
+?>
