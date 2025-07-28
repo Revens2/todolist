@@ -5,11 +5,15 @@ namespace App\Model;
 
 class cbdd 
 {
-private static string $servername = "localhost";
-private static string $username = "root";
-private static string $password = "root";
-private static string $dbname = "todolist";
-private static string $port = "5434";
+public static $url = parse_url($_ENV['DATABASE_URL'] ?? getenv('DATABASE_URL'));
+
+
+
+private static string $servername = $url['host'];
+private static string $username = $url['user']; 
+private static string $password = $url['pass']; 
+private static string $dbname = ltrim($url['path'], '/');
+private static string $port =  $url['port'];
 
  public static $conn;
 
@@ -34,14 +38,14 @@ private static string $port = "5434";
     }
 
 
-     public static function init()
+     public static function init() 
     {
-     $conn = pg_connect("host='self::servername' port='self::port'' dbname='self::dbname' user='self::username' password='self::password'");
+     $conn = pg_connect("host=".self::$servername. "port=".self::$port. "dbname=".self::$dbname. "user=".self::$username. "password=".self::$password);
     }
 
      public static function executequery(string $query)
     {
-        $result = pg_query($conn, "'$query'");
+        $result = pg_query(self::$conn, "'$query'");
         var_dump(pg_fetch_all($result));
     }
 
