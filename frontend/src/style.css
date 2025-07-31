@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap');
+
+
+
+
+.labclassic{
+    font-size: 3rem;
+text-align: center;
+text-shadow: 4px 4px 10px black;
+font-family: "Playwrite AU QLD", cursive;
+}
+
+body{
+    background-color: rgb(203, 20, 20);
+}
+
+.navbar{
+    border-color: black;
+    border-radius: 1%;
+    height: 20px;
+    width: 70%;
+    margin:0 auto;
+}
+
+main{
+    height: 500px;
+    width: 90%;
+    background-color: rgba(35, 98, 153, 0.604);
+    margin: 100px auto;
+}
+
+.button{
+    justify-content: space-between;
+}
+
+.popup{
+    display: none;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: red;
+}
+
+
+.navdeco{
+    margin-top: 10px;
+    background-color: rgb(221, 133, 0);
+    border-radius: 20px;
+}

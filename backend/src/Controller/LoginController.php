@@ -31,6 +31,6 @@ class LoginController extends AbstractController
             'user_id' => $user['userid'],
             'email' => $user['email']
         ]);
-    }
+    }   
 }
 ?>

@@ -2,10 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Listen for Xdebug",
-      "type": "php",
+      "name": "Launch Chrome",
       "request": "launch",
-      "port": 9003   // doit correspondre à xdebug.client_port
-    }
+      "type": "chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}"
+    },
+
   ]
 }

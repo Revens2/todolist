@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+ 
+ </head>
+<body>
+   <nav class="navbar"> 
+    <div class="container navdeco">   
+      <p class="labmenu">TodoList</p>  
+    <button onclick="document.getElementById('popup').style.display = 'flex'" class="button-nav">Get started </button>
+    
+    </div>
+   
+  </nav>
+
+
+  <main id="popup" class="popup">
+
+<div class="container">
+    <div style="width: 90%;border-color: brown;border-radius: 10px;">
+
+
+    <span id="close" class="close">&times;</span>
+    </div>
+    <h2>Connexion</h2>
+    <form id="loginForm">
+        <p class="labclassic">Connect toi !</p>
+        <tr>
+      <input type="email" id="email" placeholder="Email" required>
+            
+        </tr>
+        <tr>
+
+      <input type="password" id="password" placeholder="Mot de passe" required>
+        </tr>
+      <button type="submit">Se connecter</button>
+    </form>
+    <p id="message"></p>
+  </div>
+  </div>
+  </main>
+  
+  <script src="script.js"></script>
+ <script   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>

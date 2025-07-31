@@ -36,3 +36,87 @@
     transform: rotate(360deg);
   }
 }
+
+body, html, .App {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+.content-container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
+
+.header {
+  width: 90%;
+  max-width: 1000px;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.header nav a {
+  margin-left: 1.5rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.main {
+  text-align: center;
+  padding: 3rem;
+  max-width: 700px;
+}
+
+.main h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.button-primary {
+  background: white;
+  color: black;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 0.8rem 2rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
