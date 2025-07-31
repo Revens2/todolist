@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
  
  </head>
 <body>
    <nav class="navbar"> 
     <div class="container navdeco">   
       <p class="labmenu">TodoList</p>  
-    <button onclick="document.getElementById('popup').style.display = 'flex'" class="button-nav">Get started </button>
+<div class="switch-holder">
+  <input type="checkbox" id="theme-toggle" class="theme-toggle">
+  <label for="theme-toggle" class="switch">
+    <span class="slider"></span>
+  </label>
+</div>
+
+
+    <button onclick="document.getElementById('popup').style.display = 'flex'" class="neu-button">Get started </button>
     
     </div>
    
@@ -22,11 +30,10 @@
   <main id="popup" class="popup">
 
 <div class="container">
-    <div style="width: 90%;border-color: brown;border-radius: 10px;">
 
 
     <span id="close" class="close">&times;</span>
-    </div>
+   
     <h2>Connexion</h2>
     <form id="loginForm">
         <p class="labclassic">Connect toi !</p>

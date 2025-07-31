@@ -42,6 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+   const toggle = document.getElementById('theme-toggle');
+
+  toggle.addEventListener('change', function () {
+    document.body.classList.toggle('dark-mode', this.checked);
+  });
+
+
+
 
 // document.getElementById("open").addEventListener("click", () => {
 //   document.getElementById("popup").style.display = "flex";
