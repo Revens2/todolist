@@ -36,11 +36,7 @@ console.log();
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("close").addEventListener("click", () => {
-    document.getElementById("popup").style.display="none";
-  });
-});
+
 
    const toggle = document.getElementById('theme-toggle');
 

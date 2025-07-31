@@ -6,8 +6,10 @@
   --bg-color: #DFECF4;
   --text-color: #111;
   --primary-color: #ffffff;
-    --boxshadow1 : #bec9cf;
+  --boxshadow1 : #bec9cf;
   --boxshadow2 : #ffffff;
+  --bg-gradient1 : #c9d4dc;
+  --bg-gradient2 : #effdff;
 }
 
 body.dark-mode {
@@ -19,6 +21,61 @@ body.dark-mode {
   --bg-gradient1 : #2B2B2B;
   --bg-gradient2 : #2E2E2E;
 }
+
+.neu-button {
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  box-shadow: inset 4px 4px 10px #bcbcbc, inset -4px -4px 10px #ffffff;
+  color: #4d4d4d;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 2px 20px;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid rgb(206, 206, 206);
+  font-family: "Playwrite AU QLD", cursive;
+}
+
+.neu-button:hover {
+  box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
+}
+
+.neu-button:focus {
+  outline: none;
+  box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 26px;
+  width: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+  background-image: url("icons/sun.svg");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.theme-toggle:checked + .switch .slider {
+  transform: translateX(26px);
+  background-image: url("icons/moon.svg");
+}
+
 
 .labclassic{
     font-size: 3rem;
@@ -59,19 +116,7 @@ box-shadow:  12px 12px 21px var(--boxshadow1),
     display: none;
 }
 
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  color: red;
-  border-radius: 44px;
-background: linear-gradient(145deg, var(----bg-gradient1), var(----bg-gradient2));
-box-shadow:  12px 12px 21px var(--boxshadow1),
-             -12px -12px 21px var(--boxshadow2);
-}
+
 
 
 .navdeco{
@@ -92,27 +137,7 @@ box-shadow:  12px 12px 21px var(--boxshadow1),
 }
 
 
-.neu-button {
-  background-color: var(--bg-color);
-  border-radius: 50px;
-  box-shadow: inset 4px 4px 10px #bcbcbc, inset -4px -4px 10px #ffffff;
-  color: #4d4d4d;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 2px 20px;
-  transition: all 0.2s ease-in-out;
-  border: 2px solid rgb(206, 206, 206);
-  font-family: "Playwrite AU QLD", cursive;
-}
 
-.neu-button:hover {
-  box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
-}
-
-.neu-button:focus {
-  outline: none;
-  box-shadow: inset 2px 2px 5px #bcbcbc, inset -2px -2px 5px #ffffff, 2px 2px 5px #bcbcbc, -2px -2px 5px #ffffff;
-}
 .switch-holder {
     margin-left: auto;
     padding-right: 1%;
@@ -126,33 +151,16 @@ box-shadow:  12px 12px 21px var(--boxshadow1),
   display: none;
 }
 
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  background-color: #ccc;
-  border-radius: 34px;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-.slider {
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  height: 26px;
-  width: 26px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.4s;
-  background-image: url("icons/sun.svg");
-  background-size: 60%;
-  background-repeat: no-repeat;
-  background-position: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
 
-.theme-toggle:checked + .switch .slider {
-  transform: translateX(26px);
-  background-image: url("icons/moon.svg");
+.close{
+     color: red;
+    cursor: pointer;
+    font-family: none;
+    font-size: 2rem;
+    position: absolute;
+    top: 140px;
+    right: 90px;
+    width: 51px;
+    height: 51px;
+    padding: 0px;
 }

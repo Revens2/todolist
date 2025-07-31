@@ -27,12 +27,11 @@
   </nav>
 
 
-  <main id="popup" class="popup">
+<main id="popupco" class="popup">
 
-<div class="container">
-
-
-    <span id="close" class="close">&times;</span>
+  <div class="container">
+    <button onclick="document.getElementById('popup').style.display = 'none'" class="neu-button">X</button>
+    
    
     <h2>Connexion</h2>
     <form id="loginForm">
@@ -52,6 +51,29 @@
   </div>
   </main>
   
+<main id="popup" class="popup">
+
+  <div class="container">
+
+<div>
+    <button onclick="document.getElementById('popup').style.display = 'none'" class="close neu-button">&times;</button>
+  </div>
+    <form id="loginForm">
+        <p class="labclassic">Connect toi !</p>
+        <tr>
+      <input type="email" id="email" placeholder="Email" required>
+            
+        </tr>
+        <tr>
+
+      <input type="password" id="password" placeholder="Mot de passe" required>
+        </tr>
+      <button type="submit">Se connecter</button>
+    </form>
+    <p id="message"></p>
+  </div>
+  </div>
+  </main>
   <script src="script.js"></script>
  <script   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
